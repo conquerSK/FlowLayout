@@ -78,7 +78,7 @@ public class FlowLayout extends ViewGroup {
 
             List<View> lineViews = new ArrayList<>();
 
-            if (lineWidth + childWidth > sizeWidth) {
+            if (lineWidth + childWidth > sizeWidth - (getPaddingLeft() + getPaddingRight())) {
                 //换行处理
                 height += lineHeight;
 
@@ -115,6 +115,9 @@ public class FlowLayout extends ViewGroup {
             height = sizeHeight;
         } else if (modeHeight == MeasureSpec.AT_MOST) {
             height = Math.min(sizeHeight, height);
+            height = height + getPaddingTop() + getPaddingBottom();
+        } else if (modeHeight == MeasureSpec.UNSPECIFIED) {
+            height = height + getPaddingTop() + getPaddingBottom();
         }
 
         setMeasuredDimension(sizeWidth, height);
@@ -131,8 +134,8 @@ public class FlowLayout extends ViewGroup {
     //摆放view
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        int left = 0;
-        int top = 0;
+        int left = getPaddingLeft();
+        int top = getPaddingTop();
 
         int lineNums = mAllViews.size();
         for (int i = 0; i < lineNums; i++) {
@@ -141,7 +144,7 @@ public class FlowLayout extends ViewGroup {
 
             for (int j = 0; j < lineViews.size(); j++) {
                 View child = lineViews.get(j);
-                //gone...
+
                 MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
 
                 //l t r b
@@ -155,7 +158,7 @@ public class FlowLayout extends ViewGroup {
                 left += child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             }
 
-            left = 0;
+            left = getPaddingLeft();
             top += lineHeight;
         }
     }
@@ -172,7 +175,7 @@ public class FlowLayout extends ViewGroup {
         return new MarginLayoutParams(getContext(), attrs);
     }
 
-    //addView
+    //addView cast
     @Override
     protected LayoutParams generateLayoutParams(LayoutParams p) {
         return new MarginLayoutParams(p);

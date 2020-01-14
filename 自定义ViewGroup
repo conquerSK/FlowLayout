@@ -1,0 +1,21 @@
+自定义ViewGroup
+
+1. 考虑场景=> onMeasure
+2. onMeasure spec 值 + mode
+3. mode是由哪些操作影响的
+4. view.gone
+5. 自定义属性
+6. 利用系统的属性帮我们完成自定义属性
+7. layoutparams相关有四个方法
+8. padding
+
+==========================================
+FlexboxLayout
+
+app:flexDirection="row"
+app:flexWrap="wrap"
+app:justifyContent="center"
+
+=============================
+RecyclerView FlexboxLayoutManager
+

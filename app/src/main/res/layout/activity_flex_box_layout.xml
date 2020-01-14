@@ -5,21 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FlowLayoutActivity">
+    tools:context=".FlexboxLayoutActivity">
 
-    <com.shenkai.flowlayout.view.FlowLayout
-        android:id="@+id/flow_layout"
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexbox"
+        app:flexDirection="row"
+        app:flexWrap="wrap"
+        app:justifyContent="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:paddingBottom="8dp">
+        android:layout_height="wrap_content">
 
-    </com.shenkai.flowlayout.view.FlowLayout>
+    </com.google.android.flexbox.FlexboxLayout>
 
     <Button
         android:id="@+id/btn_add_tag"
-        android:layout_marginTop="20dp"
-        android:text="add tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

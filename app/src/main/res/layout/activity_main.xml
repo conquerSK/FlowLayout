@@ -13,4 +13,16 @@
         android:layout_height="wrap_content"
         android:text="Go FlowLayout" />
 
+    <Button
+        android:id="@+id/btn_flexbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go FlexBoxLayout" />
+
+    <Button
+        android:id="@+id/btn_flexboxmanager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go FlexboxManager" />
+
 </LinearLayout>
