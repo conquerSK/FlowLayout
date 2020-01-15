@@ -59,6 +59,8 @@ public class FlowLayout extends ViewGroup {
 
         int count = getChildCount();
 
+        List<View> lineViews = new ArrayList<>();
+
         //拿到当前所有child需要占据的高度，设置给我们的容器
         for (int i = 0; i < count; i++) {
             View child = getChildAt(i);
@@ -75,8 +77,6 @@ public class FlowLayout extends ViewGroup {
 
             int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
-
-            List<View> lineViews = new ArrayList<>();
 
             if (lineWidth + childWidth > sizeWidth - (getPaddingLeft() + getPaddingRight())) {
                 //换行处理
@@ -140,7 +140,7 @@ public class FlowLayout extends ViewGroup {
         int lineNums = mAllViews.size();
         for (int i = 0; i < lineNums; i++) {
             List<View> lineViews = mAllViews.get(i);
-            Integer lineHeight = mLineHeight.get(i);
+            int lineHeight = mLineHeight.get(i);
 
             for (int j = 0; j < lineViews.size(); j++) {
                 View child = lineViews.get(j);

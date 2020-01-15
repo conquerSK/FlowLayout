@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnFlowLayout;
     private Button btnFlexBox;
     private Button btnFlexboxmanager;
+    private Button btnTagFlowLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnFlexBox.setOnClickListener(this);
         btnFlexboxmanager = findViewById(R.id.btn_flexboxmanager);
         btnFlexboxmanager.setOnClickListener(this);
+        btnTagFlowLayout = findViewById(R.id.btn_tagflowlayout);
+        btnTagFlowLayout.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_flowLayout:
-                Intent intent = new Intent(this, FlowLayout.class);
+                Intent intent = new Intent(this, FlowLayoutActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_flexbox:
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_flexboxmanager:
                 Intent intent3 = new Intent(this, FlexboxLayoutManagerActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.btn_tagflowlayout:
+                Intent intent4 = new Intent(this, TagFlowLayoutActivity.class);
+                startActivity(intent4);
                 break;
         }
     }
